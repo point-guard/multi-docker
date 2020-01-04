@@ -1,4 +1,5 @@
 sudo: required
+language: generic
 
 # use docker for builds
 services:
@@ -12,7 +13,6 @@ before_install:
 script:
   - docker run -e CI=true pointguard2000/react-test npm test
 
-# push all images to docker
 after_success:
   # build all images
   - docker build -t pointguard2000/multi-client ./client
