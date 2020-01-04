@@ -2,12 +2,15 @@ sudo: required
 services:
   - docker
 
+# docker docker test image for testing
 before_install:
   - docker build -t pointguard2000/react-test -f ./client/Dockerfile.dev ./client
 
+# run all tests using docker comand
 script:
   - docker run -e CI=true pointguard2000/react-test npm test
 
+# push all images to docker
 after_success:
   - docker build -t pointguard2000/multi-client ./client
   - docker build -t pointguard2000/multi-nginx ./nginx
