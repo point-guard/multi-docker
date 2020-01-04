@@ -12,6 +12,7 @@ script:
 
 # push all images to docker
 after_success:
+  # build all images
   - docker build -t pointguard2000/multi-client ./client
   - docker build -t pointguard2000/multi-nginx ./nginx
   - docker build -t pointguard2000/multi-server ./server
