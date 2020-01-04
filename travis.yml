@@ -1,4 +1,6 @@
 sudo: required
+
+# use docker for builds
 services:
   - docker
 
